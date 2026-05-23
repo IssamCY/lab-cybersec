@@ -1,0 +1,14 @@
+# Nmap 7.98 scan initiated Fri May 22 15:06:34 2026 as: nmap -sV -oN /home/user1/lab-cybersec/nmap/resultats-nmap.txt 10.0.2.0/24
+Nmap scan report for _gateway (10.0.2.2)
+Host is up (0.00028s latency).
+All 1000 scanned ports on _gateway (10.0.2.2) are in ignored states.
+Not shown: 1000 filtered tcp ports (net-unreach)
+MAC Address: 52:54:00:12:35:00 (QEMU virtual NIC)
+
+Nmap scan report for 10.0.2.3
+Host is up (0.00026s latency).
+Not shown: 999 filtered tcp ports (net-unreach)
+PORT   STATE SERVICE VERSION
+53/tcp open  domain  dnsmasq 2.92rel2
+MAC Address: 52:54:00:12:35:00 (QEMU virtual NIC)
+
