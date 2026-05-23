@@ -1,13 +1,24 @@
 # Lab Cybersécurité Personnel
 
-## Objectif
-Monter un environnement de test sur VM Ubuntu.
+> Environnement de test complet sur VM Ubuntu — outils professionnels de surveillance, audit et détection d'intrusion.
+
+![Dashboard](dashboard.png)
+
+---
 
 ## Outils utilisés
-- Nmap : scan et cartographie réseau
-- Wireshark : analyse de trafic réseau
-- Apache2 : serveur web cible pour les tests
-- Lynis : audit de sécurité système
+
+| Outil | Rôle |
+|-------|------|
+| Nmap | Scan et cartographie réseau |
+| Wireshark | Analyse de trafic en temps réel |
+| Apache2 | Serveur web cible pour les tests |
+| Lynis | Audit de sécurité système |
+| Suricata | Détection d'intrusion (IDS) |
+| UFW | Pare-feu |
+| Fail2ban | Protection contre le brute force |
+
+---
 
 ## Ce que j'ai fait
 
@@ -18,7 +29,7 @@ Monter un environnement de test sur VM Ubuntu.
 
 ### 2. Analyse de trafic avec Wireshark
 - Capturé du trafic DNS et HTTP en temps réel
-- Observé les requêtes DNS vers le serveur 10.0.2.3 détecté avec Nmap
+- Observé les requêtes DNS vers le serveur DNS détecté avec Nmap
 
 ### 3. Audit de sécurité avec Lynis
 - Score initial : 66/100
@@ -26,24 +37,23 @@ Monter un environnement de test sur VM Ubuntu.
 - Correction 2 : installation de fail2ban → 69/100
 - Correction 3 : mises à jour automatiques de sécurité
 
-## Ce que j'ai appris
-- Comment cartographier un réseau et identifier les services exposés
-- L'importance de filtrer le trafic réseau pour détecter des anomalies
-- Comment auditer et durcir un système Linux
-
-## Suricata - Système de détection d'intrusion (IDS)
-
-### Outils
-- Suricata : détection d'intrusion en temps réel
-
-### Ce que j'ai fait
-- Installé et configuré Suricata sur l'interface enp0s3
+### 4. Détection d'intrusion avec Suricata
+- Installé et configuré Suricata sur l'interface réseau
 - Créé des règles de détection personnalisées
 - Règle 1 : détection de tout trafic ICMP
 - Règle 2 : détection de flood ping suspect (3 pings en 2 secondes)
 - Généré des alertes en temps réel avec horodatage, IP source et destination
 
-### Ce que j'ai appris
-- Comment fonctionne un IDS et comment écrire des règles de détection
-- La différence entre trafic normal et comportement suspect
-- Comment un IDS protège un réseau en temps réel
+### 5. Dashboard de monitoring
+- Créé une page web hébergée sur Apache
+- Centralise l'état des services, les alertes Suricata et le score Lynis
+- Interface visuelle type SOC
+
+---
+
+## Ce que j'ai appris
+- Cartographier un réseau et identifier les services exposés
+- Analyser le trafic réseau et détecter des anomalies
+- Auditer et durcir un système Linux
+- Écrire des règles de détection IDS personnalisées
+- Faire le lien entre attaque et défense
